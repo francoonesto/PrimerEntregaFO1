@@ -2,6 +2,7 @@ import Cartel from "./image/cuotas.webp";
 import Facebook from "./image/facebook.svg";
 import Wsp from "./image/whatsapp-_1_.svg";
 import Ig from "./image/ig.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -14,20 +15,20 @@ const Footer = () => {
           <img src={Cartel} alt={"cuotas"} width={50} />
         </div>
         <div className="col-md-4 text-end">
-          <a href="https://www.facebook.com/profile.php?id=100069270763124">
+          <Link to={"https://www.facebook.com/profile.php?id=100069270763124"}>
             <img
               src={Facebook}
               alt={"Facebook"}
               width={50}
               className="m-2"
             />
-          </a>
-          <a href="https://wa.link/hb6z49">
+          </Link>
+          <Link to={"https://wa.link/hb6z49"}>
             <img src={Wsp} alt={"Wsp"} width={50} className="m-2" />
-          </a>
-          <a href="https://www.instagram.com/maldivas_outfit/">
+          </Link>
+          <Link to={"https://www.instagram.com/maldivas_outfit/"}>
             <img src={Ig} alt={"Ig"} width={50} className="m-2" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
