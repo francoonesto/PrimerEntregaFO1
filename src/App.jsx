@@ -6,6 +6,8 @@ import ItemDetailConteiner from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import {BrowserRouter , Routes , Route} from "react-router-dom"
 import Error404 from './components/Error404';
+import Cart from './components/cart';
+
 
 
 function App() {
@@ -26,5 +28,4 @@ function App() {
   );
 }
 
-// greeting={alert("bienvenido a maldivas!")} /> se me ocurrio esto pero no se si cumple con lo pedido
 export default App;
