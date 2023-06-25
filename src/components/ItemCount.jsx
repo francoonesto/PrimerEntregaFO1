@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({stock , onAdd}) => {
 const [items , setItems] = useState(1);
 const [itemStock , setItemStock] = useState(stock);
 const [itemAgg , setItemAgg] = useState(false);
@@ -19,12 +19,12 @@ const disminuyeStock = () =>{
   }
 }
 
-const onAdd = () =>{
+const agregarAlCarrito = () =>{
   if(items <= itemStock){
     setItemStock(itemStock - items);
     setItems(1);
     setItemAgg(true);
-    alert("Agrego su producto correctamente , desea seguiar agregando?")
+    onAdd(items);
   }
 }
 
@@ -37,7 +37,7 @@ useEffect(() => {
       <div className="row">
         <div className="col">
           <div
-            class="btn-group"
+            className="btn-group"
             role="group"
             aria-label="Basic outlined example">
             <button type="button" className="btn btn-outline-dark" onClick={disminuyeStock}>-</button>
@@ -48,7 +48,7 @@ useEffect(() => {
       </div>
       <div className="row">
         <div className="col my-3">
-        {itemAgg ? <Link to={"/cart"} className="btn btn-outline-dark border-0">Finalizar Compra</Link> : <button type="button" className="btn btn-outline-dark border-0" onClick={onAdd}>AGREGAR</button>}
+        {itemAgg ? <Link to={"/carrito"} className="btn btn-outline-dark border-0">Finalizar Compra</Link> : <button type="button" className="btn btn-outline-dark border-0" onClick={agregarAlCarrito}>AGREGAR</button>}
       </div>
       </div>
     </div>

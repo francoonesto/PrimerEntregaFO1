@@ -1,8 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext , useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
+import {CartContext} from "./context/CartContext";
 
 const ItemDetail = ({ producto }) => {
+  const{addItem} = useContext(CartContext);
   const [item, setItem] = useState({});
+
+  const onAdd = (quantity) => {
+    addItem(item , quantity);
+  }
 
   useEffect(() => {
     setItem(producto);
@@ -17,7 +23,7 @@ const ItemDetail = ({ producto }) => {
             alt={item.nombre}
             className="img-fluid"
           />
-        <div className="my-2"><ItemCount stock={item.stock}/></div>
+        <div className="my-2"><ItemCount stock={item.stock} onAdd={onAdd}/></div>
         <p className="px-4">${item.precio}</p>
         </div>
         <div className="col-md-10">
